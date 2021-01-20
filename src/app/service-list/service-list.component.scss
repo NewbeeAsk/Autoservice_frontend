@@ -1,0 +1,25 @@
+.service-point{
+  margin-left: 10%;
+  margin-top: 1%;
+  margin-right: 10%;
+  padding: 10px;
+  border: 1px solid cornflowerblue;
+  border-radius: 10px;
+  & .service-point_element{
+    color: grey;
+    font-size: 18px;
+    margin: 5px;
+  }
+  & .service-point_cost{
+    float: right;
+    color: green;
+    font-size: 18px;
+    margin: 5px;
+  }
+  & .service-point_name{
+    font-size: 22px;
+    margin: 5px;
+  }
+}
+
+

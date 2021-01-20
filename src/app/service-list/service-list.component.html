@@ -1,6 +1,8 @@
 <div *ngFor="let service of serviceList">
-  <div>{{service.name}}</div>
-  <div>{{service.cost}}</div>
-  <div>{{service.category}}</div>
-  <div>{{service.description}}</div>
+  <div class="service-point">
+    <div class="service-point_name">{{service.name}}</div>
+    <div class="service-point_cost">{{service.cost}}$</div>
+    <div class="service-point_element">{{service.category}}</div>
+    <div class="service-point_element">{{service.description}}</div>
+  </div>
 </div>
