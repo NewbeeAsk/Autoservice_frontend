@@ -1,8 +1,11 @@
 <div *ngFor="let service of serviceList">
   <div class="service-point">
-    <div class="service-point_name">{{service.name}}</div>
-    <div class="service-point_cost">{{service.cost}}$</div>
-    <div class="service-point_element">{{service.category}}</div>
-    <div class="service-point_element">{{service.description}}</div>
+    <div class="service-point__name">{{service.name}}</div>
+    <div class="service-point__cost">{{service.cost}}$
+      <img (click)="addToCart(service)" src="../../assets/shopping_cart_insert.ico" alt="cart.ico">
+    </div>
+    <div class="service-point__element">{{service.category}}</div>
+    <div class="service-point__element">{{service.description}}</div>
+
   </div>
 </div>

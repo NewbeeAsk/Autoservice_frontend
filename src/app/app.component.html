@@ -1,3 +1,4 @@
 <div>
-  <app-service-list [serviceList]="serviceList"></app-service-list>
+  <app-header [cartList]="cartList"></app-header>
+  <app-service-list (addServiceToCart)="addServiceToCart($event)" [serviceList]="serviceList"></app-service-list>
 </div>

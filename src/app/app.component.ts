@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { APIService } from './api.service';
+import {APIService} from './api.service';
 import Service from './service.model';
 
 @Component({
@@ -8,14 +8,21 @@ import Service from './service.model';
   styleUrls: ['./app.component.css'],
   providers: [APIService]
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
+
   title = 'auto-service';
   serviceList!: Service[];
+  cartList: Service[];
 
   constructor(private apiService: APIService) {
+    this.cartList = [];
   }
 
   ngOnInit(): void {
     this.apiService.getServices().subscribe((data: Service[]) => (this.serviceList = data));
+  }
+
+  addServiceToCart(service: Service): any{
+    this.cartList.push(service);
   }
 }

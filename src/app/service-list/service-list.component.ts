@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import Service from '../service.model';
 
 @Component({
@@ -9,10 +9,15 @@ import Service from '../service.model';
 export class ServiceListComponent implements OnInit {
 
   @Input() public serviceList!: Service[];
+  @Output() addServiceToCart = new EventEmitter<Service>();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
+  addToCart(service: Service): any {
+    this.addServiceToCart.emit(service);
+  }
 }

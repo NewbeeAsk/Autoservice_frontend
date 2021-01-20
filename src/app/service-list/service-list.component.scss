@@ -15,11 +15,12 @@
     color: green;
     font-size: 18px;
     margin: 5px;
+    & img {
+      width: 20px;
+    }
   }
   & .service-point__name{
     font-size: 22px;
     margin: 5px;
   }
 }
-
-
