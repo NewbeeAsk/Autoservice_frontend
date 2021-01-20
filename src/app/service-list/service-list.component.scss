@@ -5,18 +5,18 @@
   padding: 10px;
   border: 1px solid cornflowerblue;
   border-radius: 10px;
-  & .service-point_element{
+  & .service-point__element{
     color: grey;
     font-size: 18px;
     margin: 5px;
   }
-  & .service-point_cost{
+  & .service-point__cost{
     float: right;
     color: green;
     font-size: 18px;
     margin: 5px;
   }
-  & .service-point_name{
+  & .service-point__name{
     font-size: 22px;
     margin: 5px;
   }
