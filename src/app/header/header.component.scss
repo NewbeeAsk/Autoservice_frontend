@@ -1,1 +1,24 @@
-
+.cart{
+  position: absolute;
+  right: 100px;
+  width: 30%;
+  padding: 10px;
+  background-color: white;
+  border: 2px solid steelblue;
+  border-radius: 5px;
+  float: right;
+  & .cart__point{
+    margin: 10px;
+    }
+}
+.hide-show-cart{
+  display: none;
+  z-index: 2;
+}
+img{
+  margin-right: 2%;
+  float: right;
+}
+h1{
+  text-align: center;
+}
