@@ -1,1 +1,6 @@
-<p>service-list works!</p>
+<div *ngFor="let service of serviceList">
+  <div>{{service.name}}</div>
+  <div>{{service.cost}}</div>
+  <div>{{service.category}}</div>
+  <div>{{service.description}}</div>
+</div>
