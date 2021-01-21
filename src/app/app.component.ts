@@ -22,7 +22,11 @@ export class AppComponent implements OnInit {
     this.apiService.getServices().subscribe((data: Service[]) => (this.serviceList = data));
   }
 
-  addServiceToCart(service: Service): any{
+  addServiceToCart(service: Service): any {
     this.cartList.push(service);
+  }
+
+  deleteServiceFromCart(service: Service): any {
+    this.cartList = this.cartList.filter(el => el.service_id !== service.service_id);
   }
 }

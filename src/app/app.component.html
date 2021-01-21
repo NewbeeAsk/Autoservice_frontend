@@ -1,4 +1,4 @@
 <div>
-  <app-header [cartList]="cartList"></app-header>
+  <app-header (getDeletedService)="deleteServiceFromCart($event)" [cartList]="cartList"></app-header>
   <app-service-list (addServiceToCart)="addServiceToCart($event)" [serviceList]="serviceList"></app-service-list>
 </div>

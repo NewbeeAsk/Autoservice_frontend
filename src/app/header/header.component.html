@@ -7,8 +7,10 @@
       <div class="cart__point">
         <div>{{service.name}}</div>
         <div>{{service.cost}}$</div>
+        <button (click)="deleteServiceFromCart(service)">Delete Service</button>
       </div>
     </div>
+    <button (click)="OrderCart()">Order</button>
   </div>
 </div>
 
