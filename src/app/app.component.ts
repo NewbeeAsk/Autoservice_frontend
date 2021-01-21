@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {APIService} from './api.service';
 import Service from './service.model';
+import Check from './check.model';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ export class AppComponent implements OnInit {
   title = 'auto-service';
   serviceList!: Service[];
   cartList: Service[];
+  checkList: Check[];
 
   constructor(private apiService: APIService) {
     this.cartList = [];

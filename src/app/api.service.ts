@@ -18,4 +18,8 @@ export class APIService {
   postOrder(cartList: Service[]): Observable<any> {
     return this.http.post(`http://localhost:8080/auto-service/order`, cartList);
   }
+
+  getChecks(): Observable<any> {
+    return this.http.get(`http://localhost:8080/auto-service/order`);
+  }
 }

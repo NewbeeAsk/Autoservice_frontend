@@ -10,7 +10,7 @@ import Check from '../check.model';
 })
 export class HeaderComponent implements OnInit {
 
-  public checkList: Check[] = [];
+  public checkList: Check[];
   @Input() public cartList: Service[];
   @Output() getDeletedService = new EventEmitter<Service>();
   show: boolean;
@@ -20,6 +20,11 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getChecks();
+  }
+
+  getChecks(): any {
+    this.apiService.getChecks().subscribe((data: Check[]) => (this.checkList = data));
   }
 
   isHidden(): boolean {
