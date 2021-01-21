@@ -1,4 +1,4 @@
-export default interface Service{
+export default interface Service {
   service_id: number;
   cost: number;
   name: string;

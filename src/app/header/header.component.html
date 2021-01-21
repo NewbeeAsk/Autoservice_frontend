@@ -1,5 +1,6 @@
 <div>
   <h1>Best auto-service</h1>
+  <div *ngFor="let check of checkList">Checks: {{check.totalCost}} {{check.paid}}</div>
   <img (click)="showHideCart()" src="../../assets/cart.ico" alt="cart.ico">
   <div class="cart" [class.hide-show-cart]="isHidden()">
     Services in cart: {{cartList.length}}

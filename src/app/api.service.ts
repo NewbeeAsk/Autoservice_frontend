@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
 import Service from './service.model';
 
 @Injectable({
@@ -8,7 +8,8 @@ import Service from './service.model';
 })
 export class APIService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getServices(): Observable<any> {
     return this.http.get(`http://localhost:8080/auto-service`);
