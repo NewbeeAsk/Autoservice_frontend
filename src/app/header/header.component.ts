@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import Service from '../service.model';
 import {APIService} from '../api.service';
 import Check from '../check.model';
+import OrderedService from '../orderedService.model';
 
 @Component({
   selector: 'app-header',
@@ -11,8 +12,9 @@ import Check from '../check.model';
 export class HeaderComponent implements OnInit {
 
   public checkList: Check[];
-  @Input() public cartList: Service[];
-  @Output() getDeletedService = new EventEmitter<Service>();
+  @Input() public cartList: OrderedService[];
+  @Output() getDeletedService = new EventEmitter<OrderedService>();
+  @Output() orderCurrentCart = new EventEmitter();
   showCart: boolean;
   showChecks: boolean;
 
@@ -44,12 +46,11 @@ export class HeaderComponent implements OnInit {
     this.showChecks = !this.showChecks;
   }
 
-  deleteServiceFromCart(service: Service): any {
+  deleteServiceFromCart(service: OrderedService): any {
     this.getDeletedService.emit(service);
   }
 
   OrderCart(): any {
-    this.apiService.postOrder(this.cartList).subscribe(data => this.checkList.push(data));
-    this.cartList = [];
+    this.orderCurrentCart.emit();
   }
 }

@@ -3,6 +3,7 @@ import {APIService} from './api.service';
 import Service from './service.model';
 import Check from './check.model';
 import CurrentCheck from './currentCheck.model';
+import OrderedService from './orderedService.model';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +13,14 @@ import CurrentCheck from './currentCheck.model';
 })
 export class AppComponent implements OnInit {
 
-  currentCheck!: CurrentCheck;
+  currentCheck: CurrentCheck;
   title = 'auto-service';
   serviceList!: Service[];
   cartList: Service[];
   checkList: Check[];
 
   constructor(private apiService: APIService) {
+    this.currentCheck = {orderedServices: [], check: {check_id: 0, paid: false, totalCost: 0}};
     this.cartList = [];
   }
 
@@ -31,10 +33,18 @@ export class AppComponent implements OnInit {
   }
 
   addServiceToCart(service: Service): any {
-    this.cartList.push(service);
+    this.apiService.postServiceToCheck(service, this.currentCheck.check)
+      .subscribe(data => this.currentCheck.orderedServices.push(data));
   }
 
-  deleteServiceFromCart(service: Service): any {
-    this.cartList = this.cartList.filter(el => el.service_id !== service.service_id);
+  deleteServiceFromCart(service: OrderedService): any {
+    this.apiService.deleteOrderedServiceFromCheck(service).subscribe();
+    this.currentCheck.orderedServices = this.currentCheck.orderedServices
+      .filter(el => el.service_id !== service.service_id);
+  }
+
+  OrderCart(): any{
+    this.apiService.closeCheck(this.currentCheck.check).subscribe(data =>  this.checkList.push(data));
+    this.apiService.openCheck().subscribe(data => this.currentCheck = data);
   }
 }

@@ -3,5 +3,5 @@ import OrderedService from './orderedService.model';
 
 export default interface CurrentCheck {
   orderedServices: OrderedService[];
-  chek: Check;
+  check: Check;
 }
