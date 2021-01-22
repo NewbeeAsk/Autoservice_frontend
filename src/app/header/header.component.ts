@@ -13,10 +13,12 @@ export class HeaderComponent implements OnInit {
   public checkList: Check[];
   @Input() public cartList: Service[];
   @Output() getDeletedService = new EventEmitter<Service>();
-  show: boolean;
+  showCart: boolean;
+  showChecks: boolean;
 
   constructor(private apiService: APIService) {
-    this.show = true;
+    this.showCart = true;
+    this.showChecks = true;
   }
 
   ngOnInit(): void {
@@ -24,15 +26,22 @@ export class HeaderComponent implements OnInit {
   }
 
   getChecks(): any {
-    this.apiService.getChecks().subscribe((data: Check[]) => (this.checkList = data));
   }
 
-  isHidden(): boolean {
-    return this.show === true;
+  isHiddenCart(): boolean {
+    return this.showCart === true;
   }
 
   showHideCart(): void {
-    this.show = !this.show;
+    this.showCart = !this.showCart;
+  }
+
+  isHiddenChecks(): boolean {
+    return this.showChecks === true;
+  }
+
+  showHideChecks(): void {
+    this.showChecks = !this.showChecks;
   }
 
   deleteServiceFromCart(service: Service): any {
@@ -41,5 +50,6 @@ export class HeaderComponent implements OnInit {
 
   OrderCart(): any {
     this.apiService.postOrder(this.cartList).subscribe(data => this.checkList.push(data));
+    this.cartList = [];
   }
 }

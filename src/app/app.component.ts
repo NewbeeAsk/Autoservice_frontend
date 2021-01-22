@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {APIService} from './api.service';
 import Service from './service.model';
 import Check from './check.model';
+import CurrentCheck from './currentCheck.model';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ import Check from './check.model';
 })
 export class AppComponent implements OnInit {
 
+  currentCheck!: CurrentCheck;
   title = 'auto-service';
   serviceList!: Service[];
   cartList: Service[];
@@ -22,6 +24,10 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.apiService.getServices().subscribe((data: Service[]) => (this.serviceList = data));
+    this.apiService.getOpenCheck().subscribe(data => this.currentCheck = data);
+    if (this.currentCheck == null){
+    this.apiService.openCheck().subscribe(data => this.currentCheck = data);
+    }
   }
 
   addServiceToCart(service: Service): any {
