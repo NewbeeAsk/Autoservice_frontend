@@ -1,6 +1,8 @@
+@import '../../styles.css';
 .cart{
   position: absolute;
   right: 100px;
+  top: 70px;
   width: 30%;
   padding: 10px;
   background-color: white;
@@ -16,12 +18,30 @@
   z-index: 2;
 }
 img{
+  position: absolute;
   margin-right: 2%;
-  float: right;
+  top: 50px;
+  right: 10px;
 }
 h1{
+  padding-top: 5%;
   text-align: center;
 }
 .check-list{
-
+  position: absolute;
+  left: 100px;
+  width: 30%;
+  padding: 10px;
+  background-color: white;
+  border: 2px solid steelblue;
+  border-radius: 5px;
+}
+.checks-button{
+  margin: 10px;
+  background-color: white;
+  border: 2px solid steelblue;
+  border-radius: 10px;
+}
+header{
+  background-color: beige;
 }

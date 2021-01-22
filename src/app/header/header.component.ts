@@ -11,7 +11,7 @@ import OrderedService from '../orderedService.model';
 })
 export class HeaderComponent implements OnInit {
 
-  public checkList: Check[];
+  @Input() public checkList: Check[];
   @Input() public cartList: OrderedService[];
   @Output() getDeletedService = new EventEmitter<OrderedService>();
   @Output() orderCurrentCart = new EventEmitter();

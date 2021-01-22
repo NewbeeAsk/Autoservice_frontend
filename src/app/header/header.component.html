@@ -1,8 +1,15 @@
-<div>
+<header>
+
   <h1>Best auto-service</h1>
-  <button (click)="showHideChecks()">Checks</button>
-  <div [class.hide-show-cart]="isHiddenChecks()" class="check-list" *ngFor="let check of checkList">Checks: {{check.totalCost}} {{check.paid}}</div>
-  <img (click)="showHideCart()" src="../../assets/cart.ico" alt="cart.ico">
+
+  <button class="checks-button" (click)="showHideChecks()">Checks</button>
+  <div [class.hide-show-cart]="isHiddenChecks()" class="check-list">Checks:
+    <div *ngFor="let check of checkList">
+      <div>{{check.totalCost}} {{check.paid}}</div>
+    </div>
+  </div>
+  
+  <img class="cartImage" (click)="showHideCart()" src="../../assets/cart.ico" alt="cart.ico">
   <div class="cart" [class.hide-show-cart]="isHiddenCart()">
     Services in cart: {{cartList.length}}
     <div *ngFor="let service of cartList">
@@ -14,5 +21,6 @@
     </div>
     <button (click)="OrderCart()">Order</button>
   </div>
-</div>
+
+</header>
 
