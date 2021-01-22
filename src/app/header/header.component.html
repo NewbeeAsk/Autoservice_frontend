@@ -8,7 +8,7 @@
       <div>{{check.totalCost}} {{check.paid}}</div>
     </div>
   </div>
-  
+
   <img class="cartImage" (click)="showHideCart()" src="../../assets/cart.ico" alt="cart.ico">
   <div class="cart" [class.hide-show-cart]="isHiddenCart()">
     Services in cart: {{cartList.length}}
