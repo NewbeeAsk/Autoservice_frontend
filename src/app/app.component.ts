@@ -4,6 +4,7 @@ import Service from './service.model';
 import Check from './check.model';
 import CurrentCheck from './currentCheck.model';
 import OrderedService from './orderedService.model';
+import ChecksByCategory from './ChecksByCategory.model';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,7 @@ export class AppComponent implements OnInit {
   title = 'auto-service';
   serviceList!: Service[];
   cartList: Service[];
-  checkList: Check[];
+  checkList: ChecksByCategory[];
 
   constructor(private apiService: APIService) {
     this.currentCheck = {orderedServices: [], check: {check_id: 0, paid: false, totalCost: 0}};
@@ -35,7 +36,7 @@ export class AppComponent implements OnInit {
   }
 
   addServiceToCart(service: Service): any {
-    this.apiService.postServiceToCheck(service, this.currentCheck.check)
+    this.apiService.postServiceToCheck(service)
       .subscribe(data => this.currentCheck.orderedServices.push(data));
   }
 

@@ -4,8 +4,13 @@
 
   <button class="checks-button" (click)="showHideChecks()">Checks</button>
   <div [class.hide-show-cart]="isHiddenChecks()" class="check-list">Checks:
-    <div *ngFor="let check of checkList">
-      <div>{{check.totalCost}} {{check.paid}}</div>
+    <div *ngFor="let checkCategory of checkList">
+      <div class="check-list__check">
+        <div>{{checkCategory.check.totalCost}} {{checkCategory.check.paid}}</div>
+        <div *ngFor="let category of checkCategory.costByCategoryList">
+          <div>{{category.category}} {{category.costByCategory}}</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -23,4 +28,3 @@
   </div>
 
 </header>
-

@@ -10,13 +10,15 @@ import OrderedService from './orderedService.model';
 })
 export class APIService {
   baseUrl: string;
+  emptyBody: string;
 
   constructor(private http: HttpClient) {
-    this.baseUrl = 'http://localhost:8080/auto-service';
+    this.baseUrl = 'http://localhost:8080';
+    this.emptyBody = 'empty';
   }
 
   getServices(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+    return this.http.get(`${this.baseUrl}/auto-service`);
   }
 
   /*postOrder(cartList: Service[]): Observable<any> {
@@ -24,26 +26,26 @@ export class APIService {
   }*/
 
   openCheck(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/new-order`);
+    return this.http.post(`${this.baseUrl}/order/new`, this.emptyBody);
   }
 
-  postServiceToCheck(service: Service, check: Check): Observable<any> {
-    return this.http.post(`${this.baseUrl}/order/${check.check_id}`, service);
-  }
-
-  closeCheck(check: Check): Observable<any> {
-    return this.http.get(`${this.baseUrl}/order/${check.check_id}`);
-  }
-
-  getOpenCheck(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/order`);
+  postServiceToCheck(service: Service): Observable<any> {
+    return this.http.post(`${this.baseUrl}/order`, service);
   }
 
   deleteOrderedServiceFromCheck(orderedService: OrderedService): Observable<any> {
     return this.http.delete(`${this.baseUrl}/order/${orderedService.service_id}`);
   }
 
+  getOpenCheck(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/order`);
+  }
+
+  closeCheck(check: Check): Observable<any> {
+    return this.http.put(`${this.baseUrl}/order`, this.emptyBody);
+  }
+
   getClosedChecks(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/orders`);
+    return this.http.get(`${this.baseUrl}/order/orders`);
   }
 }
