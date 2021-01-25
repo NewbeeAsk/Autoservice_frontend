@@ -30,11 +30,11 @@ export class APIService {
   }
 
   postServiceToCheck(service: Service): Observable<any> {
-    return this.http.post(`${this.baseUrl}/order`, service);
+    return this.http.post(`${this.baseUrl}/order/services`, service);
   }
 
   deleteOrderedServiceFromCheck(orderedService: OrderedService): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/order/${orderedService.service_id}`);
+    return this.http.delete(`${this.baseUrl}/order/services/${orderedService.service_id}`);
   }
 
   getOpenCheck(): Observable<any> {

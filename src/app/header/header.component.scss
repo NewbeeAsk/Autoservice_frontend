@@ -1,5 +1,6 @@
 @import '../../styles.css';
-.cart{
+
+.cart {
   position: absolute;
   right: 100px;
   top: 70px;
@@ -9,25 +10,46 @@
   border: 2px solid steelblue;
   border-radius: 5px;
   float: right;
-  & .cart__point{
+
+  & .cart__point {
     margin: 10px;
-    }
+    border-top: 1px solid steelblue;
+  }
+
+  & button {
+    background-color: white;
+    border: 1px solid steelblue;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  & button:hover {
+    background-color: white;
+    border: 2px solid steelblue;
+    border-radius: 5px;
+    cursor: pointer;
+  }
 }
-.hide-show-cart{
+
+.hide-show-cart {
   display: none;
   z-index: 2;
 }
-img{
+
+img {
   position: absolute;
   margin-right: 2%;
   top: 50px;
   right: 10px;
+  cursor: pointer;
 }
-h1{
+
+h1 {
   padding-top: 5%;
   text-align: center;
 }
-.check-list{
+
+.check-list {
   position: absolute;
   left: 100px;
   width: 30%;
@@ -35,17 +57,28 @@ h1{
   background-color: white;
   border: 2px solid steelblue;
   border-radius: 5px;
-  & .check-list__check{
+  overflow-y: scroll;
+  max-height: 50%;
+
+  & .check-list__check {
     border-bottom: 2px solid steelblue;
-    
+    margin-bottom: 15px;
+
+    & .check-list__check__category {
+      border-top: 1px solid steelblue;
+      color: grey;
+    }
   }
 }
-.checks-button{
+
+.checks-button {
   margin: 10px;
   background-color: white;
   border: 2px solid steelblue;
   border-radius: 10px;
+  cursor: pointer;
 }
-header{
+
+header {
   background-color: beige;
 }

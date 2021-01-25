@@ -19,6 +19,7 @@
 
     & img {
       width: 30px;
+      cursor: pointer;
     }
   }
 
@@ -38,12 +39,15 @@
     background-color: white;
     border: 2px solid steelblue;
     border-radius: 10px;
+    cursor: pointer;
   }
-  & button{
+
+  & button {
     margin-left: 10px;
     width: 150px;
     background-color: white;
     border: 2px solid steelblue;
     border-radius: 10px;
+    cursor: pointer;
   }
 }

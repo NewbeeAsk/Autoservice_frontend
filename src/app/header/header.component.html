@@ -6,9 +6,11 @@
   <div [class.hide-show-cart]="isHiddenChecks()" class="check-list">Checks:
     <div *ngFor="let checkCategory of checkList">
       <div class="check-list__check">
-        <div>{{checkCategory.check.totalCost}} {{checkCategory.check.paid}}</div>
+        <div>Total cost: {{checkCategory.check.totalCost}}$ {{checkCategory.check.paid}}</div>
         <div *ngFor="let category of checkCategory.costByCategoryList">
-          <div>{{category.category}} {{category.costByCategory}}</div>
+          <div class="check-list__check__category">
+            <div>{{category.category}} service: {{category.costByCategory}}$</div>
+          </div>
         </div>
       </div>
     </div>
