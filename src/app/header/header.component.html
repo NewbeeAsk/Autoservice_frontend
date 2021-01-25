@@ -1,0 +1,32 @@
+<header>
+
+  <h1>Best auto-service</h1>
+
+  <button class="checks-button" (click)="showHideChecks()">Checks</button>
+  <div [class.hide-show-cart]="isHiddenChecks()" class="check-list">Checks:
+    <div *ngFor="let checkCategory of checkList">
+      <div class="check-list__check">
+        <div>Total cost: {{checkCategory.check.totalCost}}$ {{checkCategory.check.paid}}</div>
+        <div *ngFor="let category of checkCategory.costByCategoryList">
+          <div class="check-list__check__category">
+            <div>{{category.category}} service: {{category.costByCategory}}$</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <img class="cartImage" (click)="showHideCart()" src="../../assets/cart.ico" alt="cart.ico">
+  <div class="cart" [class.hide-show-cart]="isHiddenCart()">
+    Services in cart: {{cartList.length}}
+    <div *ngFor="let service of cartList">
+      <div class="cart__point">
+        <div>{{service.name}}</div>
+        <div>{{service.cost}}$</div>
+        <button (click)="deleteServiceFromCart(service)">Delete Service</button>
+      </div>
+    </div>
+    <button (click)="OrderCart()">Order</button>
+  </div>
+
+</header>

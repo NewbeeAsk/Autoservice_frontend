@@ -1,0 +1,10 @@
+.footer{
+  margin-top: 2%;
+  background-color: beige;
+  display: flex;
+  justify-content: center;
+  & .footer__company-info{
+    margin: 15px;
+    padding: 15px;
+  }
+}
