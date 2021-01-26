@@ -6,6 +6,7 @@ import { ServiceListComponent } from './service-list/service-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,10 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyC5VaQjjPJrlPA4q755dYVtqoFAW3CXIYI'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

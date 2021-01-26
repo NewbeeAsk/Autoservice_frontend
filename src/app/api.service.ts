@@ -48,4 +48,8 @@ export class APIService {
   getClosedChecks(): Observable<any> {
     return this.http.get(`${this.baseUrl}/order/orders`);
   }
+
+  getCoordinates(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/coordinates`);
+  }
 }

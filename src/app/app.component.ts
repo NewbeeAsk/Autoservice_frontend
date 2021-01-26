@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {APIService} from './api.service';
 import Service from './service.model';
-import Check from './check.model';
 import CurrentCheck from './currentCheck.model';
 import OrderedService from './orderedService.model';
 import ChecksByCategory from './ChecksByCategory.model';
