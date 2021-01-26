@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import Check from './check.model';
 import Service from './service.model';
 import OrderedService from './orderedService.model';
+import {environment} from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,17 +14,13 @@ export class APIService {
   emptyBody: string;
 
   constructor(private http: HttpClient) {
-    this.baseUrl = 'http://localhost:8080';
+    this.baseUrl = environment.baseUrl;
     this.emptyBody = 'empty';
   }
 
   getServices(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/auto-service`);
+    return this.http.get(`${this.baseUrl}/auto-service`, {observe: 'response'});
   }
-
-  /*postOrder(cartList: Service[]): Observable<any> {
-    return this.http.post(`http://localhost:8080/auto-service/order`, cartList);
-  }*/
 
   openCheck(): Observable<any> {
     return this.http.post(`${this.baseUrl}/order/new`, this.emptyBody);
@@ -50,6 +47,6 @@ export class APIService {
   }
 
   getCoordinates(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/coordinates`);
+    return this.http.get(`${this.baseUrl}/service-stations`);
   }
 }

@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {APIService} from '../api.service';
-import Coordinate from '../coordinate.model';
+import ServiceStation from '../ServiceStation.model';
+import {switchMap} from 'rxjs/operators';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-footer',
@@ -9,19 +11,24 @@ import Coordinate from '../coordinate.model';
 })
 export class FooterComponent implements OnInit {
 
-  lat!: number;
-  lng!: number;
-  coordinates: Coordinate[];
+  currentAutoService: ServiceStation = {id: 1, city: 'random', lng: 32.321311, lat: 32.123123};
+  AutoServices: ServiceStation[];
 
-  constructor(private apiService: APIService) {
+  constructor(private apiService: APIService, private route: ActivatedRoute) {
+    this.route.params.pipe(
+      switchMap((params): any => ( console.log(params)
+      )));
   }
 
   ngOnInit(): void {
-    this.apiService.getCoordinates().subscribe(data => this.coordinates = data);
+    this.apiService.getCoordinates().subscribe(data => this.AutoServices = data);
   }
 
-  defineCoordinates(coordinate: Coordinate): any {
-    this.lat = coordinate.lat;
-    this.lng = coordinate.lng;
+  defineCoordinates(serviceStation: ServiceStation): any {
+    this.currentAutoService = serviceStation;
+  }
+
+  isCurrentAutoService(autoService: ServiceStation): any {
+    return autoService.lat === this.currentAutoService.lat && autoService.lng === this.currentAutoService.lng;
   }
 }

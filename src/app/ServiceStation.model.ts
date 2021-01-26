@@ -1,4 +1,4 @@
-export default interface Coordinate {
+export default interface ServiceStation {
   id: number;
   city: string;
   lat: number;

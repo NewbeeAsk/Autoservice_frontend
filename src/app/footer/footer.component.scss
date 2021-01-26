@@ -12,6 +12,7 @@
   & .footer__auto-services{
     margin: 20px;
     & .footer__auto-services__point{
+      cursor: pointer;
       margin-top: 10px;
     }
   }
@@ -19,4 +20,7 @@
 agm-map{
   height: 200px;
   width: 400px;
+}
+.active{
+  background-color: lightgreen;
 }

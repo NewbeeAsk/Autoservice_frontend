@@ -1,12 +1,12 @@
 <div class="footer">
   <div class="footer__auto-services">
-    <div *ngFor="let coordinate of coordinates">
-      <div (click)="defineCoordinates(coordinate)" class="footer__auto-services__point">
-        <strong>{{coordinate.id}}.</strong>{{coordinate.city}}
+    <div *ngFor="let autoService of AutoServices">
+      <div (click)="defineCoordinates(autoService)" [class.active]="isCurrentAutoService(autoService)" routerLink='/map/{{autoService.city}}' class="footer__auto-services__point">
+        <strong>{{autoService.id}}.</strong>{{autoService.city}}
       </div>
     </div>
   </div>
-  <agm-map [latitude]="lat" [longitude]="lng" >
-    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  <agm-map [latitude]="currentAutoService.lat" [longitude]="currentAutoService.lng" >
+    <agm-marker [latitude]="currentAutoService.lat" [longitude]="currentAutoService.lng"></agm-marker>
   </agm-map>
 </div>

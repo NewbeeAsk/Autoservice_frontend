@@ -13,7 +13,7 @@ import ChecksByCategory from './ChecksByCategory.model';
 })
 export class AppComponent implements OnInit {
 
-  currentCheck: CurrentCheck;
+  currentCheck!: CurrentCheck;
   title = 'auto-service';
   serviceList!: Service[];
   cartList: Service[];
@@ -25,7 +25,9 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.apiService.getServices().subscribe((data: Service[]) => (this.serviceList = data));
+    this.apiService.getServices().subscribe((response) => {
+      response.status === 200 ? this.serviceList = response.body : alert('Something went wrong');
+    });
     this.apiService.getOpenCheck().subscribe(data => this.currentCheck = data);
     if (this.currentCheck == null) {
       console.log(this.currentCheck);

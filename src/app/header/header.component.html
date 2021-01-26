@@ -1,7 +1,7 @@
 <header>
 
   <h1>Best auto-service</h1>
-
+  <h3 routerLink="/map">Now on the map!</h3>
   <button class="checks-button" (click)="showHideChecks()">Checks</button>
   <div [class.hide-show-cart]="isHiddenChecks()" class="check-list">Checks:
     <div *ngFor="let checkCategory of checkList">

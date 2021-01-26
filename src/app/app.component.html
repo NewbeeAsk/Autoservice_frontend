@@ -1,5 +1,5 @@
 <div>
   <app-header (orderCurrentCart)="OrderCart()" (getDeletedService)="deleteServiceFromCart($event)" [cartList]="currentCheck.orderedServices" [checkList]="checkList"></app-header>
+  <router-outlet></router-outlet>
   <app-service-list (addServiceToCart)="addServiceToCart($event)" [serviceList]="serviceList"></app-service-list>
-  <app-footer></app-footer>
 </div>
